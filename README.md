@@ -4,4 +4,4 @@ Published on [hub.docker.com/r/colisweb/node-aws-docker](https://hub.docker.com/
 
 Get it with
 
-    docker pull colisweb/node-aws-docker
+    docker pull colisweb/node-aws-docker:10-stretch
