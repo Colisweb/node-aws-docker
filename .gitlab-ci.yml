@@ -1,18 +1,10 @@
-publish docker image:
-  image: docker:19.03.1
-  only:
-    refs:
-      - master
-  script:
-    - docker build -t colisweb/node-aws-docker:10-stretch .
-    - docker push colisweb/node-aws-docker:10-stretch
+include:
+  - 'https://gitlab.com/colisweb-open-source/ci-common/raw/v7.10.1/templates/colisweb.yml'
 
-  services:
-    - docker:dind
-  variables:
-    DOCKER_HOST: tcp://docker:2375
-  before_script:
-    - apk add bash gnupg
-    - bash -c 'gpg --import  <(echo "$GITLAB_PGP_PRIVATE_KEY")'
-    - bash -c "source <(gpg -q --decrypt docker_login.sh.secret)"
+version:
+  extends: .version
+  tags: []
+
+publish docker image:
+  extends: .publish-dockerhub
 

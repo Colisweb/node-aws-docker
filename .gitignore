@@ -54,3 +54,4 @@ fabric.properties
 .gitsecret/keys/random_seed
 !*.secret
 docker_login.sh
+secrets-env.sh
